@@ -7,35 +7,33 @@ export const deepClone = (context: Context) => {
 };
 
 export const defaultHeader: (header?: Partial<HttpRequest>) => HttpRequest = (header: Partial<HttpRequest>) => {
-  const defHeader: HttpRequest = {
-    headers: {},
+  const headers = {};
+  const defHeader: Partial<HttpRequest> = {
+    headers: headers,
     query: {},
     method: 'GET',
     url: 'beyond365.de',
-    params: {}
+    params: {},
+    user: null
   };
-  return { ...defHeader, ...header };
+  return { ...defHeader, ...header } as HttpRequest;
 };
-
 
 const get: AdvancedHTTPMethod<string> = async (context: Context, req: HttpRequest, data: String) => {
   context.res = {
     body: data
-  }
-  context.done()
-}
+  };
+};
 
 const post: AdvancedHTTPMethod<string> = async (context: Context, req: HttpRequest, data: String) => {
   context.res = {
     body: data
-  }
-  context.done()
-}
-
+  };
+};
 
 export default advancedHTTPTrigger<string>(
-    {
-      get
-    },
-    async (context, req) => 'test'
-  );
+  {
+    get
+  },
+  async (context, req) => 'test'
+);
