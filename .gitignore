@@ -1,2 +1,18 @@
+# dependencies
 node_modules
-lib
+build
+dist
+storybook-static
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# misc
+.env
+.DS_Store
+.turbo
+
+coverage
